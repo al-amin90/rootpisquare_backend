@@ -1,8 +1,8 @@
 import status from "http-status";
-import catchAsync from "../../../utils/catchAsync";
-import sendResponse from "../../../utils/SendResponse";
+import catchAsync from "../../utils/catchAsync";
+import sendResponse from "../../utils/SendResponse";
 import { productServices } from "./product.service";
-import { uploadOnCloudinary } from "../../../utils/cloudinary";
+import { uploadOnCloudinary } from "../../utils/cloudinary";
 
 const createProduct = catchAsync(async (req, res, next) => {
   const subdomain = req.headers["x-tenant"] as string;

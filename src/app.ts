@@ -35,7 +35,7 @@ app.use(
 );
 
 // __) all application route here
-// app.use("/api/v1", router);
+app.use("/api/v1", router);
 
 app.get("/", (req, res) => {
   res.send(`This app listening on port ${config.port}`);

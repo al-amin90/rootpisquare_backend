@@ -1,7 +1,7 @@
-import config from "../../../config";
-import AppError from "../../../errors/AppError";
+import config from "../../config";
+import AppError from "../../errors/AppError";
 import { getTenantModel } from "../../../utils/getTenantModel";
-import { createToken } from "../../auth/auth.utils";
+import { createToken } from "../auth/auth.utils";
 import { IUser } from "./user.interface";
 import jwt from "jsonwebtoken";
 

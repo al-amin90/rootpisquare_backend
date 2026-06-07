@@ -1,15 +1,15 @@
-import AppError from "../../../errors/AppError";
+import AppError from "../../errors/AppError";
 import { getTenantModel } from "../../../utils/getTenantModel";
-import QueryBuilder from "../../../builder/QueryBuilder";
+import QueryBuilder from "../../builder/QueryBuilder";
 import { TProduct, TVariant } from "./product.interface";
 
 import status from "http-status";
-import { extractPublicId } from "../../../utils/extractPublicId";
+import { extractPublicId } from "../../utils/extractPublicId";
 import {
   deleteManyFromCloudinary,
   uploadOnCloudinary,
-} from "../../../utils/cloudinary";
-import { getRemovedImages } from "../../../utils/getRemovedImages";
+} from "../../utils/cloudinary";
+import { getRemovedImages } from "../../utils/getRemovedImages";
 
 const createProductIntoDB = async (subdomain: string, payload: TProduct) => {
   const Product = await getTenantModel(subdomain, "Product");
