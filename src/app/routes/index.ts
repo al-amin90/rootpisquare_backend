@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { authRouter } from "../modules/auth/auth.route";
 import { classRouter } from "../modules/class/class.route";
+import { subjectRouter } from "../modules/subject/subject.route";
+import { playlistRouter } from "../modules/playlist/playlist.route";
 
 const router = Router();
 
@@ -13,10 +15,14 @@ const moduleRouters = [
     path: "/class",
     route: classRouter,
   },
-  // {
-  //   path: "/category",
-  //   route: categoryRouter,
-  // },
+  {
+    path: "/subject",
+    route: subjectRouter,
+  },
+  {
+    path: "/playlist",
+    route: playlistRouter,
+  },
   // {
   //   path: "/color",
   //   route: colorRouter,
