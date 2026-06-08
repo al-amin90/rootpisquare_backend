@@ -18,8 +18,7 @@ app.use(
       "http://localhost:3000",
       "https://kidshutbd.com",
       "https://www.kidshutbd.com",
-      "https://saas-ecommerce-frontend-omega.vercel.app",
-      /\.localhost:\d{4}$/, // Matches alamin.localhost:3000, any.localhost:3000
+      "https://rootpisquare-frontend.vercel.app",
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],

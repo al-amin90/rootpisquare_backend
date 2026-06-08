@@ -43,7 +43,7 @@ export const deleteFromCloudinary = async (
     const publicId = extractPublicId(imageUrl);
 
     const result = await cloudinary.uploader.destroy(publicId);
-    console.log("result", result);
+
     return result.result === "ok";
   } catch (error) {
     return false;
