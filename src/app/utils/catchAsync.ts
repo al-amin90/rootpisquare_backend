@@ -6,7 +6,7 @@ const catchAsync = (fn: RequestHandler) => {
     Promise.resolve(fn(req, res, next)).catch((err) => {
       if (req.files) {
         const files = req.files as Express.Multer.File[];
-        files.forEach((file) => {
+        files?.forEach((file) => {
           if (fs.existsSync(file.path)) {
             fs.unlinkSync(file.path);
           }

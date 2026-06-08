@@ -3,7 +3,8 @@ import { type TPlaylist, type TSubjectEntry } from "./playlist.interface";
 
 const subjectEntrySchema = new Schema<TSubjectEntry>({
   subjectName: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "Subject",
     required: true,
   },
   image: {
@@ -16,7 +17,8 @@ const subjectEntrySchema = new Schema<TSubjectEntry>({
 
 const playlistSchema = new Schema<TPlaylist>({
   className: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "Class",
     required: true,
     index: true,
   },

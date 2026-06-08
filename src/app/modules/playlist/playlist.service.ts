@@ -37,12 +37,18 @@ const createPlaylistIntoDB = async (
 };
 
 const getAllPlaylistFromDB = async () => {
-  const result = await PlaylistModel.find();
+  const result = await PlaylistModel.find().populate([
+    { path: "className" },
+    { path: "subjects.subjectName" },
+  ]);
   return result;
 };
 
 const getSinglePlaylistFromDB = async (id: string) => {
-  const result = await PlaylistModel.findById(id);
+  const result = await PlaylistModel.findById(id).populate([
+    { path: "className" },
+    { path: "subjects.subjectName" },
+  ]);
   return result;
 };
 

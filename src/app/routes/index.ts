@@ -3,6 +3,7 @@ import { authRouter } from "../modules/auth/auth.route";
 import { classRouter } from "../modules/class/class.route";
 import { subjectRouter } from "../modules/subject/subject.route";
 import { playlistRouter } from "../modules/playlist/playlist.route";
+import { batchRouter } from "../modules/batch/batch.route";
 
 const router = Router();
 
@@ -23,10 +24,10 @@ const moduleRouters = [
     path: "/playlist",
     route: playlistRouter,
   },
-  // {
-  //   path: "/color",
-  //   route: colorRouter,
-  // },
+  {
+    path: "/batch",
+    route: batchRouter,
+  },
   // {
   //   path: "/product",
   //   route: productRouter,
