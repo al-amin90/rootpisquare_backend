@@ -57,7 +57,7 @@ const updatePlaylist = catchAsync(async (req, res) => {
   }
 
   const result = await playlistServices.updatePlaylistInDB(
-    req.params.id,
+    req.params.id as string,
     req.body,
     files?.subjectImages || [],
     deletedIndices,

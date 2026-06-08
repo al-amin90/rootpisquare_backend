@@ -94,8 +94,12 @@ const updatePlaylistInDB = async (
         (!existing.subjects[i]?.image && imageIndex < imageFiles.length);
 
       if (shouldHaveImage && imageIndex < imageFiles.length) {
-        newImageMap.set(i, imageFiles[imageIndex]);
-        imageIndex++;
+        const imageFile = imageFiles[imageIndex];
+
+        if (imageFile) {
+          newImageMap.set(i, imageFile);
+          imageIndex++;
+        }
       }
     }
   }
