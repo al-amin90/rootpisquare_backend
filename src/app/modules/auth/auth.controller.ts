@@ -5,6 +5,7 @@ import sendResponse from "../../utils/SendResponse";
 import catchAsync from "../../utils/catchAsync";
 import { authServices } from "./auth.service";
 import config from "../../config";
+import type { Request, Response } from "express";
 
 // const registerTenant = catchAsync(async (req, res, next) => {
 //   const result = await authServices.registerTenantRequest(req.body);
@@ -47,7 +48,18 @@ const loginUser = catchAsync(async (req, res, next) => {
   });
 });
 
+const getDashboardStats = catchAsync(async (req: Request, res: Response) => {
+  const result = await authServices.getDashboardStats();
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Dashboard statistics retrieved successfully",
+    data: result,
+  });
+});
+
 export const authControllers = {
   loginUser,
-  // registerTenant,
+  getDashboardStats,
 };

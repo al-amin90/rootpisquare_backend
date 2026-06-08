@@ -4,6 +4,8 @@ import { classRouter } from "../modules/class/class.route";
 import { subjectRouter } from "../modules/subject/subject.route";
 import { playlistRouter } from "../modules/playlist/playlist.route";
 import { batchRouter } from "../modules/batch/batch.route";
+import { videoRouter } from "../modules/video/video.route";
+import { noteRouter } from "../modules/note/note.route";
 
 const router = Router();
 
@@ -28,10 +30,14 @@ const moduleRouters = [
     path: "/batch",
     route: batchRouter,
   },
-  // {
-  //   path: "/product",
-  //   route: productRouter,
-  // },
+  {
+    path: "/video",
+    route: videoRouter,
+  },
+  {
+    path: "/note",
+    route: noteRouter,
+  },
 ];
 
 moduleRouters.forEach((route) => {

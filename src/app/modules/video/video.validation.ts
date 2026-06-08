@@ -10,13 +10,9 @@ export const createVideoSchema = z.object({
       message: "Subject is required",
     }),
 
-    youtubeURL: z
-      .string({
-        message: "Youtube URL is required",
-      })
-      .url({
-        message: "Invalid Youtube URL",
-      }),
+    youtubeURL: z.string({
+      message: "Youtube URL is required",
+    }),
 
     name: z
       .string({
@@ -32,7 +28,7 @@ export const updateVideoSchema = z.object({
   body: z.object({
     className: z.string().optional(),
     subjectName: z.string().optional(),
-    youtubeURL: z.string().url().optional(),
+    youtubeURL: z.string().optional(),
     name: z.string().min(1).optional(),
   }),
 });

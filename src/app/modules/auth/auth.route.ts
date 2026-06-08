@@ -17,4 +17,6 @@ router.post(
   authControllers.loginUser,
 );
 
+router.get("/stats", authControllers.getDashboardStats);
+
 export const authRouter = router;

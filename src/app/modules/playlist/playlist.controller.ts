@@ -44,14 +44,23 @@ const getSinglePlaylist = catchAsync(async (req, res, next) => {
   });
 });
 
-const updatePlaylist = catchAsync(async (req, res, next) => {
+const updatePlaylist = catchAsync(async (req, res) => {
   const files = req.files as { [fieldname: string]: Express.Multer.File[] };
-  const subjectImages = files?.subjectImages ?? [];
+
+  // Parse deleted indices if present
+  let deletedIndices: number[] = [];
+  if (req.body.deletedImages) {
+    deletedIndices =
+      typeof req.body.deletedImages === "string"
+        ? JSON.parse(req.body.deletedImages)
+        : req.body.deletedImages;
+  }
 
   const result = await playlistServices.updatePlaylistInDB(
-    req.params.id as string,
+    req.params.id,
     req.body,
-    subjectImages,
+    files?.subjectImages || [],
+    deletedIndices,
   );
 
   sendResponse(res, {
@@ -75,10 +84,24 @@ const deletePlaylist = catchAsync(async (req, res, next) => {
   });
 });
 
+const getPlaylistsByClassID = catchAsync(async (req, res, next) => {
+  const result = await playlistServices.getPlaylistsByClassIDFromDB(
+    req.params.id as string,
+  );
+
+  sendResponse(res, {
+    statusCode: status.OK,
+    success: true,
+    message: "Playlists retrieved successfully for the class",
+    data: result,
+  });
+});
+
 export const playlistControllers = {
   createPlaylist,
   getAllPlaylist,
   getSinglePlaylist,
   updatePlaylist,
   deletePlaylist,
+  getPlaylistsByClassID,
 };

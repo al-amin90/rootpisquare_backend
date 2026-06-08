@@ -11,14 +11,6 @@ const createNoteIntoDB = async (payload: TNote) => {
   return result;
 };
 
-const getAllNoteFromDB = async () => {
-  return await NoteModel.find();
-};
-
-const getSingleNoteFromDB = async (id: string) => {
-  return await NoteModel.findById(id);
-};
-
 const updateNoteInDB = async (
   id: string,
   file?: Express.Multer.File,
@@ -50,6 +42,14 @@ const updateNoteInDB = async (
   });
 
   return result;
+};
+
+const getAllNoteFromDB = async () => {
+  return await NoteModel.find();
+};
+
+const getSingleNoteFromDB = async (id: string) => {
+  return await NoteModel.findById(id);
 };
 
 const deleteNoteFromDB = async (id: string) => {
