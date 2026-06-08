@@ -7,7 +7,10 @@ const createPlaylist = catchAsync(async (req, res, next) => {
   const files = req.files as { [fieldname: string]: Express.Multer.File[] };
   const subjectImages = files?.subjectImages ?? []; // array, index matches subjects[]
 
-  const result = await playlistServices.createPlaylistIntoDB(req.body);
+  const result = await playlistServices.createPlaylistIntoDB(
+    req.body,
+    subjectImages,
+  );
 
   sendResponse(res, {
     statusCode: status.OK,
@@ -48,6 +51,7 @@ const updatePlaylist = catchAsync(async (req, res, next) => {
   const result = await playlistServices.updatePlaylistInDB(
     req.params.id as string,
     req.body,
+    subjectImages,
   );
 
   sendResponse(res, {
