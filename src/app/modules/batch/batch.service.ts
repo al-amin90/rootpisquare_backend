@@ -11,19 +11,6 @@ const createBatchIntoDB = async (payload: TBatch) => {
   const result = await BatchModel.create(payload);
   return result;
 };
-
-const getAllBatchFromDB = async () => {
-  const result = await BatchModel.find().populate("className");
-
-  return result;
-};
-
-const getSingleBatchFromDB = async (id: string) => {
-  const result = await BatchModel.findById(id).populate("className");
-
-  return result;
-};
-
 const updateBatchInDB = async (
   id: string,
   file?: Express.Multer.File,
@@ -63,6 +50,18 @@ const updateBatchInDB = async (
     new: true,
     runValidators: true,
   });
+
+  return result;
+};
+
+const getAllBatchFromDB = async () => {
+  const result = await BatchModel.find().populate("className");
+
+  return result;
+};
+
+const getSingleBatchFromDB = async (id: string) => {
+  const result = await BatchModel.findById(id).populate("className");
 
   return result;
 };

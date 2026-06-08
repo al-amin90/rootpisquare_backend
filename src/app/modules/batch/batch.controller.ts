@@ -33,6 +33,20 @@ const createBatch = catchAsync(async (req, res, next) => {
     data: result,
   });
 });
+const updateBatch = catchAsync(async (req, res, next) => {
+  const result = await batchServices.updateBatchInDB(
+    req.params.id as string,
+    req.file,
+    req.body,
+  );
+
+  sendResponse(res, {
+    statusCode: status.OK,
+    success: true,
+    message: "Batch updated successfully",
+    data: result,
+  });
+});
 
 const getAllBatch = catchAsync(async (req, res, next) => {
   const result = await batchServices.getAllBatchFromDB();
@@ -54,21 +68,6 @@ const getSingleBatch = catchAsync(async (req, res, next) => {
     statusCode: status.OK,
     success: true,
     message: "Batch retrieved successfully",
-    data: result,
-  });
-});
-
-const updateBatch = catchAsync(async (req, res, next) => {
-  const result = await batchServices.updateBatchInDB(
-    req.params.id as string,
-    req.file,
-    req.body,
-  );
-
-  sendResponse(res, {
-    statusCode: status.OK,
-    success: true,
-    message: "Batch updated successfully",
     data: result,
   });
 });
