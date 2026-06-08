@@ -31,7 +31,6 @@ const batchSchema = new Schema<TBatch>({
 
   icon: {
     type: String,
-    required: true,
   },
 
   slots: {

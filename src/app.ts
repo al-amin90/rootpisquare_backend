@@ -16,8 +16,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://kidshutbd.com",
-      "https://www.kidshutbd.com",
+      "https://rootpisquare.com",
+      "https://www.rootpisquare.com",
       "https://rootpisquare-frontend.vercel.app",
     ],
     credentials: true,

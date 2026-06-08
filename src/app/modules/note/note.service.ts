@@ -23,7 +23,7 @@ const updateNoteInDB = async (
   }
 
   if (file) {
-    const imageUrl = await uploadOnCloudinary(file.path, "notes");
+    const imageUrl = await uploadOnCloudinary(file.buffer, "notes");
 
     if (imageUrl) {
       if (note.image) {

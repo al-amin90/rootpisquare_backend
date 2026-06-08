@@ -46,7 +46,7 @@ const updateBatchInDB = async (
   }
 
   if (file) {
-    const iconUrl = await uploadOnCloudinary(file.path, "batch");
+    const iconUrl = await uploadOnCloudinary(file.buffer, "batch");
 
     if (iconUrl) {
       if (batch.icon) {

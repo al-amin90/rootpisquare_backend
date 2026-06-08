@@ -10,7 +10,7 @@ const createBatch = catchAsync(async (req, res, next) => {
   const file = req.file;
 
   if (file) {
-    const url = await uploadOnCloudinary(file.path, "batch");
+    const url = await uploadOnCloudinary(file.buffer, "batch");
 
     if (url) {
       iconUrl = url;

@@ -10,7 +10,7 @@ const createNote = catchAsync(async (req, res, next) => {
   let imageUrl = "";
 
   if (file) {
-    const url = await uploadOnCloudinary(file.path, "notes");
+    const url = await uploadOnCloudinary(file.buffer, "notes");
     if (url) imageUrl = url;
   }
 

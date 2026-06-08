@@ -18,7 +18,7 @@ const createPlaylistIntoDB = async (
 
       if (file) {
         const imageUrl = await uploadOnCloudinary(
-          file.path,
+          file.buffer,
           "playlists", // folder inside Cloudinary
         );
         return { ...subject, image: imageUrl ?? "" };
@@ -124,7 +124,7 @@ const updatePlaylistInDB = async (
 
         // Upload new image
         const uploadedUrl = await uploadOnCloudinary(
-          newImageFile.path,
+          newImageFile.buffer,
           "playlists",
           "root-pi-square",
         );
