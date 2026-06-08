@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import { TPlaylist, TSubjectEntry } from "./playlist.interface";
+import { type TPlaylist, type TSubjectEntry } from "./playlist.interface";
 
 const subjectEntrySchema = new Schema<TSubjectEntry>({
   subjectName: {

@@ -4,6 +4,9 @@ import sendResponse from "../../utils/SendResponse";
 import { playlistServices } from "./playlist.service";
 
 const createPlaylist = catchAsync(async (req, res, next) => {
+  const files = req.files as { [fieldname: string]: Express.Multer.File[] };
+  const subjectImages = files?.subjectImages ?? []; // array, index matches subjects[]
+
   const result = await playlistServices.createPlaylistIntoDB(req.body);
 
   sendResponse(res, {
@@ -39,6 +42,9 @@ const getSinglePlaylist = catchAsync(async (req, res, next) => {
 });
 
 const updatePlaylist = catchAsync(async (req, res, next) => {
+  const files = req.files as { [fieldname: string]: Express.Multer.File[] };
+  const subjectImages = files?.subjectImages ?? [];
+
   const result = await playlistServices.updatePlaylistInDB(
     req.params.id as string,
     req.body,
